@@ -1294,62 +1294,95 @@
     }
     .lead-modal__dialog {
       width: min(760px, 100%);
-      background: #FFFFFF;
-      border-radius: 22px;
-      padding: 34px 30px 28px;
+      background:
+        radial-gradient(circle at top, rgba(212,168,83,0.14), transparent 36%),
+        linear-gradient(180deg, #FBF6EC 0%, #F4E9D6 100%);
+      border: 1px solid rgba(158,120,32,0.18);
+      border-radius: 24px;
+      padding: 36px 32px 30px;
       position: relative;
-      box-shadow: 0 28px 70px rgba(0,0,0,0.28);
+      box-shadow: 0 28px 70px rgba(19,11,6,0.34);
+      overflow: hidden;
+    }
+    .lead-modal__dialog::before {
+      content: '';
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(212,168,83,0.72) 50%, transparent 100%);
     }
     .lead-modal__close {
       position: absolute;
-      top: 18px;
-      right: 18px;
-      width: 40px;
-      height: 40px;
-      border: none;
-      background: transparent;
-      color: #171717;
-      font-size: 20px;
+      top: 20px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(158,120,32,0.24);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--gold-dark);
+      font-size: 18px;
       line-height: 1;
       cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+    .lead-modal__close:hover {
+      background: rgba(212,168,83,0.10);
+      border-color: rgba(158,120,32,0.38);
+      transform: translateY(-1px);
+    }
+    .lead-modal__eyebrow {
+      margin-bottom: 12px;
+      text-align: center;
     }
     .lead-modal__title {
-      margin: 8px auto 28px;
-      max-width: 560px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 700;
-      line-height: 1.18;
+      margin: 0 auto 26px;
+      max-width: 600px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 600;
+      line-height: 1.14;
       text-align: center;
-      color: #1D2A39;
+      color: var(--warm-black);
     }
     .lead-form {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
     .lead-field {
       width: 100%;
-      height: 72px;
-      border: 2px solid #B8B8B8;
-      padding: 0 18px;
+      height: 70px;
+      border: 1px solid rgba(122,106,88,0.34);
+      border-radius: 12px;
+      padding: 0 22px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      color: #203040;
+      font-size: 17px;
+      color: var(--text-dark);
       outline: none;
-      background: #FFFFFF;
+      background: rgba(255,255,255,0.82);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
     .lead-field::placeholder {
-      color: #667483;
+      color: var(--text-muted);
       opacity: 1;
+    }
+    .lead-field:focus,
+    .lead-phone:focus-within {
+      border-color: rgba(192,144,56,0.66);
+      box-shadow: 0 0 0 4px rgba(212,168,83,0.12);
+      background: #FFFFFF;
     }
     .lead-phone {
       display: grid;
-      grid-template-columns: 94px minmax(0, 1fr);
+      grid-template-columns: 108px minmax(0, 1fr);
       align-items: center;
-      border: 2px solid #B8B8B8;
-      height: 72px;
-      background: #FFFFFF;
+      border: 1px solid rgba(122,106,88,0.34);
+      border-radius: 12px;
+      height: 70px;
+      background: rgba(255,255,255,0.82);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
     .lead-phone__prefix {
       display: flex;
@@ -1357,56 +1390,76 @@
       justify-content: center;
       gap: 8px;
       height: 100%;
-      border-right: 1px solid #D0D0D0;
+      border-right: 1px solid rgba(122,106,88,0.18);
       font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      color: #203040;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      color: var(--text-medium);
       white-space: nowrap;
+      background: rgba(212,168,83,0.08);
     }
     .lead-phone__field {
       border: none;
       height: 100%;
       width: 100%;
-      padding: 0 18px;
+      padding: 0 20px;
       font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      color: #203040;
+      font-size: 17px;
+      color: var(--text-dark);
       outline: none;
+      background: transparent;
     }
     .lead-form__submit {
-      margin-top: 6px;
-      height: 68px;
+      margin-top: 10px;
+      height: 66px;
       border: none;
-      background: #09C25D;
+      border-radius: 10px;
+      background: var(--gold-gradient);
       color: #FFFFFF;
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(18px, 3vw, 28px);
-      font-weight: 800;
+      font-size: clamp(15px, 2.2vw, 18px);
+      font-weight: 700;
+      letter-spacing: 2.4px;
       text-transform: uppercase;
       cursor: pointer;
+      box-shadow: 0 14px 32px rgba(192,144,56,0.28);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+    .lead-form__submit:hover {
+      background: var(--gold-gradient-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(192,144,56,0.34);
     }
     .lead-form__submit:disabled {
       opacity: 0.7;
       cursor: wait;
     }
     .lead-modal__hint {
-      margin-top: 12px;
+      margin-top: 14px;
       text-align: center;
       font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      color: #6B7280;
-      min-height: 18px;
+      font-size: 13px;
+      color: var(--text-medium);
+      min-height: 20px;
     }
     @media (max-width: 640px) {
       .lead-modal {
         padding: 12px;
       }
       .lead-modal__dialog {
-        padding: 28px 18px 22px;
+        padding: 30px 18px 24px;
         border-radius: 18px;
       }
+      .lead-modal__close {
+        top: 14px;
+        right: 14px;
+      }
+      .lead-modal__title {
+        max-width: 280px;
+        margin-bottom: 22px;
+      }
       .lead-phone {
-        grid-template-columns: 86px minmax(0, 1fr);
+        grid-template-columns: 96px minmax(0, 1fr);
       }
       .lead-field,
       .lead-phone,
@@ -1753,6 +1806,7 @@
 <div class="lead-modal" id="lead-modal" aria-hidden="true">
   <div class="lead-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
     <button class="lead-modal__close" type="button" aria-label="Fechar modal" data-close-modal>×</button>
+    <span class="eyebrow dark lead-modal__eyebrow">Acesso imediato</span>
     <h2 class="lead-modal__title" id="lead-modal-title">Preencha os dados abaixo para garantir seu E-book</h2>
     <form class="lead-form" id="lead-form">
       <input class="lead-field" id="lead-name" name="name" type="text" placeholder="Digite seu Nome" autocomplete="name" required>
