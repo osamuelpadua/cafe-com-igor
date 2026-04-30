@@ -1,0 +1,1936 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>21 Passos Bíblicos Para Encontrar a Pessoa Certa — Igor Reis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================================
+       DESIGN SYSTEM — Hi-Fi
+       21 Passos Bíblicos · Igor Reis
+    =========================================== */
+    :root {
+      --cream:        #F5EBD8;
+      --cream-deep:   #EDE0CA;
+      --warm-black:   #1C1208;
+      --warm-dark:    #261608;
+
+      --gold-light:   #D4A853;
+      --gold-mid:     #C09038;
+      --gold-dark:    #9E7820;
+      --gold-gradient:       linear-gradient(135deg, #D4A853 0%, #C09038 55%, #9E7820 100%);
+      --gold-gradient-hover: linear-gradient(135deg, #E0BA65 0%, #CCA045 55%, #AA8428 100%);
+
+      --text-dark:    #1C1208;
+      --text-medium:  #4A3A28;
+      --text-muted:   #7A6A58;
+      --text-on-dark: #F5EBD8;
+      --border-warm:  #D4C4A4;
+      --border-gold:  rgba(212,168,83,0.35);
+
+      --max-width: 880px;
+      --r-sm: 4px;
+      --r:    12px;
+      --r-lg: 20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    section,
+    footer {
+      transition:
+        opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform, filter;
+    }
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      filter: blur(6px);
+    }
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      section,
+      footer {
+        transition: none;
+      }
+      .scroll-reveal,
+      .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* --- Tipografia --- */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 5vw, 46px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.3px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    p { margin-bottom: 1em; }
+    p:last-child { margin-bottom: 0; }
+
+    /* Ênfase dourada em headlines */
+    h1 em, h2 em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    /* Em seções claras: dourado mais escuro */
+    #ebook-intro h2 em,
+    #diagnostico h2 em,
+    #produto h2 em,
+    #prova-social h2 em,
+    #garantia h2 em,
+    #autoridade h2 em { color: var(--gold-mid); }
+
+    /* --- Eyebrow / Label --- */
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .eyebrow.dark { color: var(--gold-mid); }
+
+    /* --- CTA Dourado --- */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold-gradient);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 20px 58px;
+      border-radius: var(--r-sm);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 28px rgba(192,144,56,0.38);
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+    .btn-cta:hover {
+      background: var(--gold-gradient-hover);
+      color: #FFFFFF;
+      box-shadow: 0 8px 36px rgba(192,144,56,0.52);
+      transform: translateY(-2px);
+    }
+    .btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .btn-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .btn-note.light { color: rgba(245,235,216,0.55); }
+    .btn-note strong { color: var(--gold-light); font-weight: 600; }
+    .btn-note del { opacity: 0.65; }
+
+    /* ===========================================
+       TOPBAR
+    =========================================== */
+    #topbar {
+      background: linear-gradient(135deg, #724C2A 0%, #27190D 72%);
+      color: var(--text-on-dark);
+      padding: 11px 24px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    #topbar .sep { color: var(--gold-mid); margin: 0 10px; }
+
+    /* ===========================================
+       HERO
+    =========================================== */
+    #hero {
+      background-image: url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 92px 24px 84px;
+      text-align: center;
+    }
+    #hero h1 {
+      font-size: clamp(34px, 3.7vw, 46px);
+      color: var(--text-dark);
+      max-width: 980px;
+      margin: 0 auto 20px;
+      line-height: 1.1;
+    }
+    .hero-line {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    @media (min-width: 821px) {
+      .hero-line { white-space: nowrap; }
+    }
+    #hero .subheadline {
+      font-size: 17px;
+      color: var(--text-medium);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+    #hero .eyebrow { color: var(--gold-mid); }
+    .hero-media {
+      max-width: 680px;
+      margin: 44px auto 0;
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+      background: rgba(245,235,216,0.58);
+      border: 1px solid rgba(158,120,32,0.22);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 36px rgba(28,18,8,0.10);
+      backdrop-filter: blur(3px);
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-play {
+      position: absolute;
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(192,144,56,0.55);
+      background: rgba(245,235,216,0.82);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(28,18,8,0.10);
+    }
+    .hero-play::after {
+      content: '';
+      border-style: solid;
+      border-width: 11px 0 11px 20px;
+      border-color: transparent transparent transparent var(--gold-light);
+      margin-left: 5px;
+    }
+    #hero .btn-note.light { color: var(--text-muted); }
+    #hero .btn-note.light strong { color: var(--gold-dark); }
+    #hero .btn-wrap { margin-top: 48px; }
+    @media (max-width: 820px) {
+      #hero h1 { max-width: 800px; }
+      .hero-line { display: inline; }
+    }
+
+    /* ===========================================
+       E-BOOK INTRO
+    =========================================== */
+    #ebook-intro {
+      background: #FFFFFF;
+      padding: 92px 24px 88px;
+    }
+    #ebook-intro .container {
+      max-width: 1380px;
+      padding: 0 24px;
+    }
+    .ebook-card {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 0;
+      align-items: center;
+      position: relative;
+    }
+    .ebook-cover-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .ebook-cover {
+      width: 420px;
+      max-width: none;
+      display: block;
+      filter: drop-shadow(0 22px 34px rgba(28,18,8,0.18));
+    }
+    .ebook-body {
+      min-width: 0;
+      margin-left: -26px;
+      background: linear-gradient(90deg, #E7DDD0 0%, #F1E6D1 16%, #F4EBD8 100%);
+      border-radius: 0 24px 24px 0;
+      padding: 62px 44px 52px 112px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+    }
+    .ebook-card h2 {
+      font-size: clamp(28px, 2.2vw, 40px);
+      color: var(--text-dark);
+      line-height: 1.08;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+    .ebook-pts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .ebook-pts li {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-medium);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.35;
+    }
+    .ebook-pts li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--gold-mid);
+      font-size: 16px;
+      line-height: 1;
+      top: 5px;
+      font-weight: 700;
+    }
+    .ebook-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 0;
+    }
+    .ebook-cta .btn-cta {
+      width: 100%;
+      text-align: center;
+      font-size: 17px;
+      letter-spacing: 4px;
+      padding: 24px 32px;
+      border-radius: 8px;
+      box-shadow: 0 20px 36px rgba(192,144,56,0.20);
+    }
+    .ebook-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .ebook-price strong {
+      color: var(--gold-mid);
+      font-weight: 700;
+    }
+
+    @media (max-width: 1080px) {
+      #ebook-intro .container {
+        padding: 0 20px;
+      }
+      .ebook-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .ebook-cover-wrap {
+        justify-content: center;
+      }
+      .ebook-cover {
+        width: min(420px, 82vw);
+      }
+      .ebook-body {
+        margin-left: 0;
+        border-radius: 28px;
+        padding: 44px 34px 40px;
+      }
+    }
+    @media (max-width: 680px) {
+      #ebook-intro {
+        padding: 72px 20px 68px;
+      }
+      .ebook-card {
+        gap: 8px;
+      }
+      .ebook-card h2 {
+        font-size: clamp(28px, 7vw, 40px);
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      .ebook-pts li {
+        font-size: 16px;
+      }
+      .ebook-cta {
+        align-items: stretch;
+      }
+      .ebook-cta .btn-cta {
+        font-size: 14px;
+        letter-spacing: 2.8px;
+        padding: 22px 24px;
+      }
+      .ebook-price {
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+
+    /* ===========================================
+       ESPELHO
+    =========================================== */
+    #espelho {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 17% 16%, rgba(193,136,69,0.28) 0%, rgba(193,136,69,0.16) 20%, rgba(193,136,69,0) 42%),
+        linear-gradient(90deg, #724C2A 0%, #4B2C15 24%, #27190D 72%, #24170D 100%);
+      padding: 70px 24px 96px;
+      text-align: center;
+    }
+    #espelho::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.13) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(255,255,255,0.06) 0.7px, transparent 0.7px),
+        linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.03));
+      background-position: 0 0, 13px 17px, 7px 9px, 0 0;
+      background-size: 16px 16px, 21px 21px, 9px 9px, 100% 100%;
+      opacity: 0.78;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+    #espelho .container {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+    }
+    #espelho .container::before {
+      content: '\201C';
+      display: block;
+      margin: 0 auto 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      line-height: 0.72;
+      color: rgba(158,120,32,0.64);
+    }
+    .espelho-line {
+      display: block;
+    }
+    #espelho h2 {
+      color: var(--text-on-dark);
+      max-width: 860px;
+      margin: 0 auto 26px;
+      font-size: clamp(34px, 3.2vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.2px;
+    }
+    #espelho blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 1.45vw, 20px);
+      color: rgba(245,235,216,0.82);
+      line-height: 1.5;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    @media (max-width: 760px) {
+      #espelho {
+        padding: 72px 20px 78px;
+      }
+      #espelho .container::before {
+        font-size: 60px;
+        margin-bottom: 10px;
+      }
+      .espelho-line {
+        display: inline;
+      }
+      #espelho h2 {
+        font-size: clamp(30px, 7vw, 46px);
+        margin-bottom: 20px;
+      }
+      #espelho blockquote {
+        font-size: 16px;
+      }
+    }
+
+    /* ===========================================
+       DIAGNÓSTICO
+    =========================================== */
+    #diagnostico {
+      background-image: url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 96px 24px;
+    }
+    #diagnostico .container { max-width: 740px; }
+    #diagnostico h2 { color: var(--text-dark); margin-bottom: 44px; text-align: center; }
+
+    .neg-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; }
+    .neg-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 15px 20px;
+      background: rgba(237,224,202,0.55);
+      border-left: 2px solid var(--gold-mid);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--text-medium);
+      line-height: 1.55;
+    }
+    .neg-x {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold-mid);
+      flex-shrink: 0;
+      margin-top: 0;
+      line-height: 1.55;
+    }
+
+    .diag-callout {
+      background-image:
+        linear-gradient(rgba(38,22,8,0.93), rgba(38,22,8,0.93)),
+        url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--r);
+      padding: 36px 44px;
+      text-align: center;
+    }
+    .diag-callout p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(17px, 2.2vw, 22px);
+      color: var(--text-on-dark);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .diag-callout p em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    #diagnostico .btn-wrap { margin-top: 44px; }
+
+    /* ===========================================
+       PRODUTO
+    =========================================== */
+    #produto {
+      background: #F8F8F6;
+      padding: 86px 24px 96px;
+      text-align: center;
+    }
+    #produto .container { max-width: 1000px; }
+    .method-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 5.6px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      margin-bottom: 18px;
+    }
+    #produto h2 {
+      color: var(--text-dark);
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto 16px;
+      font-size: clamp(38px, 3.6vw, 46px);
+      line-height: 1.01;
+      letter-spacing: -1px;
+      white-space: nowrap;
+    }
+    .produto-line { display: inline; }
+    .produto-copy-line { display: block; }
+    .method-body {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-medium);
+      line-height: 1.38;
+      max-width: 760px;
+      margin: 0 auto 14px;
+    }
+    .method-body:first-of-type {
+      max-width: 760px;
+      color: #534233;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .method-body:last-of-type { margin-bottom: 0; }
+    #produto .btn-wrap {
+      margin-top: 46px;
+      gap: 16px;
+    }
+    #produto .btn-cta {
+      width: 638px;
+      max-width: 100%;
+      min-width: 0;
+      font-size: 17px;
+      letter-spacing: 4.8px;
+      padding: 26px 42px;
+      border-radius: 8px;
+      box-shadow: 0 18px 34px rgba(212,168,83,0.30);
+    }
+    #produto .btn-note {
+      font-size: 16px;
+      color: #8A7A68;
+    }
+    @media (max-width: 760px) {
+      #produto {
+        padding: 82px 20px 78px;
+      }
+      #produto h2 {
+        font-size: clamp(34px, 8vw, 46px);
+        white-space: normal;
+        width: auto;
+      }
+      .method-body,
+      .method-body:first-of-type {
+        font-size: 16px;
+        max-width: 100%;
+      }
+      .produto-copy-line { display: inline; }
+      #produto .btn-cta {
+        width: 100%;
+        font-size: 14px;
+        letter-spacing: 3px;
+        padding: 22px 24px;
+      }
+      #produto .btn-note {
+        font-size: 15px;
+      }
+    }
+
+    /* ===========================================
+       BENEFÍCIOS
+    =========================================== */
+    #beneficios {
+      background-image:
+        linear-gradient(rgba(28,18,8,0.93), rgba(28,18,8,0.93)),
+        url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 96px 24px;
+    }
+    #beneficios > .container > h2 {
+      color: var(--text-on-dark);
+      margin-bottom: 56px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .ben-cat { margin-bottom: 48px; }
+    .ben-cat:last-of-type { margin-bottom: 0; }
+    .ben-cat-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(212,168,83,0.28);
+      margin-bottom: 20px;
+    }
+    .ben-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 640px) { .ben-grid { grid-template-columns: 1fr; } }
+    .ben-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 17px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r-sm);
+    }
+    .ben-icon { color: var(--gold-mid); font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+    .ben-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: rgba(245,235,216,0.80);
+      line-height: 1.55;
+    }
+    #beneficios .btn-wrap { margin-top: 56px; }
+
+    /* ===========================================
+       PROVA SOCIAL
+    =========================================== */
+    #prova-social {
+      background-image: url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 86px 24px 102px;
+    }
+    #prova-social .container { max-width: 1220px; }
+    #prova-social h2 {
+      color: var(--text-dark);
+      margin: 0 auto 38px;
+      max-width: 1120px;
+      text-align: center;
+      font-size: clamp(34px, 3.2vw, 46px);
+      line-height: 1.04;
+      letter-spacing: -0.7px;
+      white-space: nowrap;
+    }
+    .depo-eyebrow {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .depo-masonry {
+      columns: 3;
+      column-gap: 26px;
+    }
+    @media (max-width: 720px) { .depo-masonry { columns: 2; } }
+    @media (max-width: 460px) { .depo-masonry { columns: 1; } }
+
+    .depo-item {
+      break-inside: avoid;
+      margin-bottom: 26px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.98);
+      padding: 14px;
+      box-shadow: 0 10px 30px rgba(28,18,8,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .depo-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px rgba(28,18,8,0.12);
+    }
+    .depo-item img {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+    #prova-social .btn-wrap {
+      margin-top: 54px;
+      gap: 14px;
+    }
+    #prova-social .btn-cta {
+      min-width: 620px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      letter-spacing: 4.4px;
+      padding: 28px 40px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #prova-social .btn-note {
+      font-size: 16px;
+      color: #8A7A68;
+    }
+    @media (max-width: 760px) {
+      #prova-social {
+        padding: 72px 20px 82px;
+      }
+      #prova-social h2 {
+        white-space: normal;
+        font-size: clamp(30px, 8vw, 42px);
+        max-width: 100%;
+      }
+      #prova-social .btn-cta {
+        min-width: 0;
+        width: 100%;
+        font-size: 14px;
+        letter-spacing: 3px;
+        padding: 22px 24px;
+      }
+      #prova-social .btn-note {
+        font-size: 14px;
+      }
+    }
+
+    /* ===========================================
+       OFERTA
+    =========================================== */
+    #oferta {
+      position: relative;
+      overflow: hidden;
+      background: #27190D;
+      padding: 86px 24px 102px;
+      text-align: center;
+    }
+    #oferta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.11) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(255,255,255,0.05) 0.65px, transparent 0.65px);
+      background-position: 0 0, 13px 17px, 7px 9px;
+      background-size: 16px 16px, 21px 21px, 9px 9px;
+      opacity: 0.52;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+    #oferta .container {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+    }
+    #oferta h2 {
+      color: var(--text-on-dark);
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto 22px;
+      font-size: clamp(38px, 4vw, 46px);
+      line-height: 0.95;
+      letter-spacing: -1px;
+    }
+    .offer-line { display: block; }
+    .offer-meta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: rgba(245,235,216,0.68);
+      line-height: 1.55;
+      max-width: 820px;
+      margin: 0 auto 58px;
+      letter-spacing: 0;
+    }
+    .offer-meta-line { display: block; }
+    .price-box {
+      background: var(--cream);
+      border-radius: 22px;
+      padding: 38px 28px 26px;
+      margin: 0 auto 28px;
+      max-width: 954px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+    }
+    .price-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .price-original {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .price-original del { opacity: 0.7; }
+    .price-prefix {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--text-dark);
+      line-height: 0.9;
+      margin-bottom: -2px;
+    }
+    .price-value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(72px, 7vw, 128px);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 0.88;
+      margin-bottom: 0;
+    }
+    .price-currency {
+      font-size: 0.42em;
+      vertical-align: 0.22em;
+      margin-right: 0.04em;
+    }
+    .price-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: var(--text-muted);
+      letter-spacing: 0;
+      margin-bottom: 26px;
+    }
+    .price-box .btn-cta {
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 4.6px;
+      padding: 30px 28px;
+      border-radius: 18px;
+      box-shadow: 0 14px 30px rgba(212,168,83,0.22);
+    }
+
+    .pay-badges { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .badge {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(245,235,216,0.14);
+      border-radius: 8px;
+      padding: 16px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      color: rgba(245,235,216,0.62);
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+    @media (max-width: 760px) {
+      #oferta {
+        padding: 72px 20px 84px;
+      }
+      #oferta .container {
+        max-width: 100%;
+      }
+      #oferta h2 {
+        width: auto;
+        font-size: clamp(34px, 9vw, 46px);
+      }
+      .offer-meta {
+        font-size: 14px;
+        max-width: 100%;
+        margin-bottom: 36px;
+      }
+      .price-box {
+        padding: 28px 18px 20px;
+        max-width: 100%;
+      }
+      .price-original {
+        font-size: 16px;
+      }
+      .price-prefix {
+        font-size: 16px;
+      }
+      .price-value {
+        font-size: clamp(64px, 18vw, 98px);
+      }
+      .price-sub {
+        font-size: 14px;
+        margin-bottom: 22px;
+      }
+      .price-box .btn-cta {
+        font-size: 14px;
+        letter-spacing: 3px;
+        padding: 22px 18px;
+        border-radius: 12px;
+      }
+      .pay-badges {
+        gap: 10px;
+      }
+      .badge {
+        font-size: 13px;
+        padding: 10px 14px;
+      }
+    }
+
+    /* ===========================================
+       GARANTIA
+    =========================================== */
+    #garantia {
+      background-image: url('./img/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 72px 24px 70px;
+    }
+    .garantia-box {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .g-seal-wrap {
+      flex: 0 0 300px;
+      display: flex;
+      justify-content: center;
+    }
+    .g-seal {
+      width: 272px;
+      max-width: 100%;
+      display: block;
+      filter: drop-shadow(0 10px 20px rgba(28,18,8,0.12));
+    }
+    .g-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .g-content h2 {
+      color: var(--text-dark);
+      font-size: clamp(30px, 3vw, 46px);
+      line-height: 1.02;
+      letter-spacing: -0.8px;
+      margin-bottom: 22px;
+      white-space: nowrap;
+    }
+    .garantia-line { display: inline; }
+    .g-content p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: var(--text-medium);
+      line-height: 1.56;
+      max-width: 760px;
+      margin-bottom: 0.95em;
+    }
+    .g-content strong { color: var(--text-dark); font-weight: 700; }
+    .garantia-copy-line { display: block; }
+    .g-content p:last-child {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 1.15em;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .garantia-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 26px;
+      }
+      .g-seal-wrap {
+        flex: unset;
+      }
+      .g-seal {
+        width: min(260px, 72vw);
+      }
+      .garantia-line,
+      .garantia-copy-line { display: inline; }
+      .g-content h2 {
+        white-space: normal;
+      }
+      .g-content p,
+      .g-content p:last-child {
+        max-width: 100%;
+      }
+    }
+
+    /* ===========================================
+       AUTORIDADE
+    =========================================== */
+    #autoridade {
+      background: #F7F7F5;
+      padding: 86px 24px 84px;
+    }
+    .author-block {
+      display: flex;
+      gap: 42px;
+      align-items: flex-start;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .author-photo-wrap { flex: 0 0 322px; }
+    .author-photo {
+      width: 322px;
+      max-width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+    .author-bio { flex: 1; min-width: 280px; }
+    .author-bio h2 {
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      font-size: clamp(34px, 3vw, 46px);
+      line-height: 1.02;
+      letter-spacing: -0.8px;
+    }
+    .author-title-line { display: inline; }
+    .author-bio p {
+      font-size: 15px;
+      color: var(--text-medium);
+      line-height: 1.8;
+      margin-bottom: 1.2em;
+      max-width: 720px;
+    }
+    .author-copy-line { display: inline; }
+    .author-creds {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border-warm);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 700px;
+    }
+    .cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: var(--text-medium);
+      line-height: 1.5;
+    }
+    .cred-dot { color: var(--gold-mid); font-size: 16px; line-height: 1.4; flex-shrink: 0; }
+    .cred strong { color: var(--text-dark); font-weight: 700; }
+    @media (max-width: 900px) {
+      .author-block {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .author-photo-wrap {
+        flex: unset;
+      }
+      .author-photo {
+        width: min(390px, 100%);
+      }
+    }
+
+    /* ===========================================
+       FAQ
+    =========================================== */
+    #faq {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(0deg, #482E18 0%, #1B1209 100%);
+      padding: 74px 24px 162px;
+    }
+    #faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.11) 1.1px, transparent 1.1px),
+        radial-gradient(rgba(255,255,255,0.05) 0.65px, transparent 0.65px);
+      background-position: 0 0, 13px 17px, 7px 9px;
+      background-size: 16px 16px, 21px 21px, 9px 9px;
+      opacity: 0.52;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+    }
+    #faq .container {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+    }
+    #faq h2 {
+      color: var(--text-on-dark);
+      margin-bottom: 34px;
+      text-align: center;
+      font-size: clamp(34px, 3.6vw, 46px);
+      line-height: 1.04;
+      letter-spacing: -0.6px;
+    }
+    .faq-eyebrow {
+      display: block;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4.8px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 21px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(245,235,216,0.94);
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: rgba(255,255,255,0.05); }
+    .faq-ch {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      background: url('./img/chevron.svg') center/contain no-repeat;
+      font-size: 0;
+      transition: transform 0.25s ease;
+    }
+    .faq-item.open .faq-ch { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 26px 22px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: rgba(245,235,216,0.74);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-a { display: block; }
+    #faq .btn-wrap {
+      margin-top: 40px;
+      gap: 12px;
+    }
+    #faq .btn-cta {
+      min-width: 406px;
+      font-size: 14px;
+      letter-spacing: 4px;
+      padding: 24px 28px;
+      border-radius: 6px;
+      box-shadow: 0 14px 28px rgba(212,168,83,0.24);
+    }
+    #faq .btn-note.light {
+      color: rgba(245,235,216,0.82);
+      font-size: 13px;
+    }
+    @media (max-width: 760px) {
+      #faq {
+        padding: 68px 20px 118px;
+      }
+      #faq .container {
+        max-width: 100%;
+      }
+      #faq h2 {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+      .faq-q {
+        padding: 18px 18px;
+        font-size: 12px;
+      }
+      .faq-a {
+        padding: 0 18px 18px;
+        font-size: 12px;
+      }
+      #faq .btn-cta {
+        min-width: 0;
+        width: 100%;
+        font-size: 14px;
+        letter-spacing: 3px;
+        padding: 22px 24px;
+      }
+      #faq .btn-note.light {
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    /* ===========================================
+       LEAD MODAL
+    =========================================== */
+    body.modal-open {
+      overflow: hidden;
+    }
+    .lead-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(15,10,7,0.64);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+    .lead-modal.is-open {
+      display: flex;
+    }
+    .lead-modal__dialog {
+      width: min(760px, 100%);
+      background: #FFFFFF;
+      border-radius: 22px;
+      padding: 34px 30px 28px;
+      position: relative;
+      box-shadow: 0 28px 70px rgba(0,0,0,0.28);
+    }
+    .lead-modal__close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+      color: #171717;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .lead-modal__title {
+      margin: 8px auto 28px;
+      max-width: 560px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.18;
+      text-align: center;
+      color: #1D2A39;
+    }
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .lead-field {
+      width: 100%;
+      height: 72px;
+      border: 2px solid #B8B8B8;
+      padding: 0 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: #203040;
+      outline: none;
+      background: #FFFFFF;
+    }
+    .lead-field::placeholder {
+      color: #667483;
+      opacity: 1;
+    }
+    .lead-phone {
+      display: grid;
+      grid-template-columns: 94px minmax(0, 1fr);
+      align-items: center;
+      border: 2px solid #B8B8B8;
+      height: 72px;
+      background: #FFFFFF;
+    }
+    .lead-phone__prefix {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+      border-right: 1px solid #D0D0D0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: #203040;
+      white-space: nowrap;
+    }
+    .lead-phone__field {
+      border: none;
+      height: 100%;
+      width: 100%;
+      padding: 0 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: #203040;
+      outline: none;
+    }
+    .lead-form__submit {
+      margin-top: 6px;
+      height: 68px;
+      border: none;
+      background: #09C25D;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 800;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .lead-form__submit:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+    .lead-modal__hint {
+      margin-top: 12px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: #6B7280;
+      min-height: 18px;
+    }
+    @media (max-width: 640px) {
+      .lead-modal {
+        padding: 12px;
+      }
+      .lead-modal__dialog {
+        padding: 28px 18px 22px;
+        border-radius: 18px;
+      }
+      .lead-phone {
+        grid-template-columns: 86px minmax(0, 1fr);
+      }
+      .lead-field,
+      .lead-phone,
+      .lead-form__submit {
+        height: 62px;
+      }
+      .lead-field,
+      .lead-phone__field {
+        font-size: 16px;
+      }
+    }
+
+    /* ===========================================
+       FOOTER
+    =========================================== */
+    #footer {
+      background: #3B2411;
+      color: rgba(245,235,216,0.36);
+      padding: 18px 24px 20px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0;
+      line-height: 1.4;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+    .footer-links { display: none; }
+    #footer a { color: rgba(245,235,216,0.48); text-decoration: none; transition: color 0.2s; }
+    #footer a:hover { color: rgba(245,235,216,0.82); }
+    #footer p { margin: 0; color: rgba(245,235,216,0.36); }
+    #footer p + p { display: none; }
+
+    /* ===========================================
+       RESPONSIVE GLOBAL
+    =========================================== */
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .btn-cta { padding: 18px 36px; }
+      .diag-callout { padding: 28px 24px; }
+      .price-box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  ✦ <span>Acesso imediato</span>
+  <span class="sep">·</span>
+  <span>Garantia de 7 dias</span>
+  <span class="sep">·</span>
+  <span>Conteúdo 100% digital</span>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <span class="eyebrow">Igor Reis · Café com Igor</span>
+    <h1><span class="hero-line">Por que cristãos de boa intenção</span><span class="hero-line">continuam atraindo as <em>pessoas erradas</em></span><span class="hero-line">e o que a Bíblia <em>realmente</em> diz sobre isso</span></h1>
+    <p class="subheadline">Não é falta de fé. É um padrão que precisa ser quebrado e existe um caminho bíblico, claro e prático, para isso.</p>
+
+    <div class="hero-media">
+      <img src="./img/thumb.png" alt="Thumbnail do vídeo 21 Passos Bíblicos" loading="eager">
+      <div class="hero-play"></div>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero acessar os 21 passos agora</a>
+      <span class="btn-note light"><del>De R$97</del> &nbsp;por apenas <strong>R$47</strong></span>
+      <span class="btn-note light">Pagamento 100% seguro · Acesso imediato</span>
+    </div>
+  </div>
+</section>
+
+<!-- E-BOOK INTRO -->
+<section id="ebook-intro">
+  <div class="container">
+    <div class="ebook-card">
+      <div class="ebook-cover-wrap">
+        <img class="ebook-cover" src="./img/cover-book.png" alt="Capa do e-book 21 Passos Bíblicos Para Encontrar a Pessoa Certa" loading="lazy">
+      </div>
+      <div class="ebook-body">
+        <h2>Um método bíblico prático para escolher com maturidade, clareza e paz.</h2>
+        <ul class="ebook-pts">
+          <li>21 passos para discernir antes de se envolver</li>
+          <li>Direção para curar emoções e ouvir Deus com mais clareza</li>
+          <li>Aplicação simples, com acesso imediato</li>
+        </ul>
+        <div class="ebook-cta">
+          <a href="#oferta" class="btn-cta">Quero começar com mais clareza</a>
+          <span class="ebook-price"><strong>R$47</strong> · Acesso imediato</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPELHO -->
+<section id="espelho">
+  <div class="container">
+    <h2><span class="espelho-line">Você tentou fazer certo. E mesmo</span><span class="espelho-line">assim saiu <em>mais ferido</em> do que entrou.</span></h2>
+    <blockquote>Orou, buscou direção, insistiu... e no fim a história doeu de novo.</blockquote>
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO -->
+<section id="diagnostico">
+  <div class="container">
+    <h2>O problema não é a sua boa intenção. É o <em>padrão</em> que se repete.</h2>
+    <ul class="neg-list">
+      <li><span class="neg-x">×</span> Escolher com base nas feridas, não na maturidade</li>
+      <li><span class="neg-x">×</span> Ignorar sinais óbvios porque via só o potencial</li>
+      <li><span class="neg-x">×</span> Carregar dores que não eram suas</li>
+      <li><span class="neg-x">×</span> Tentar salvar o outro espiritualmente</li>
+      <li><span class="neg-x">×</span> Confundir sentimento com direção de Deus</li>
+    </ul>
+    <div class="diag-callout">
+      <p>Isso não é falta de fé. É falta de <em>estrutura emocional e espiritual</em> para escolher do jeito certo.</p>
+    </div>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero romper esse ciclo</a>
+      <span class="btn-note">Método bíblico prático · Acesso imediato</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTO -->
+<section id="produto">
+  <div class="container">
+    <span class="method-label">Não é mais um e-book</span>
+    <h2><span class="produto-line">É um método bíblico</span><span class="produto-line"><em>prático.</em></span></h2>
+    <p class="method-body"><span class="produto-copy-line">Os 21 passos não são frases soltas sobre "esperar em Deus".</span><span class="produto-copy-line">Eles seguem uma ordem clara e aplicável.</span></p>
+    <p class="method-body"><span class="produto-copy-line">Primeiro organiza o que está aí dentro. Depois te ajuda a escolher</span><span class="produto-copy-line">com mais maturidade, direção de Deus e paz no coração.</span></p>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero entender esses 21 passos</a>
+      <span class="btn-note">Leitura simples · Aplicação prática</span>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section id="beneficios">
+  <div class="container">
+    <h2>Os <em>benefícios</em> que você vai descobrir dentro dos 21 passos:</h2>
+
+    <div class="ben-cat">
+      <span class="ben-cat-label">Sobre você mesmo</span>
+      <div class="ben-grid">
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que você continua atraindo o mesmo perfil de pessoa — e o mecanismo bíblico para romper esse ciclo de vez</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como saber se sua identidade está firmada em Cristo ou em aprovação externa — e o que isso tem a ver com quem você escolhe</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como curar as emoções que estão guiando suas decisões amorosas sem você perceber</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que o relacionamento certo acontece quando você entra nesse estado</span></div>
+      </div>
+    </div>
+
+    <div class="ben-cat">
+      <span class="ben-cat-label">Sobre discernir a pessoa certa</span>
+      <div class="ben-grid">
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como distinguir essência de aparência — o que a Bíblia revela sobre enxergar além do que impressiona</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que caráter sustenta uma aliança e carisma não — e os sinais práticos de cada um no dia a dia</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">O que é "identificar jugo desigual" e como se envolver emocionalmente</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como identificar distrações piedosas — aquelas pessoas que parecem vir de Deus, mas não vieram</span></div>
+      </div>
+    </div>
+
+    <div class="ben-cat">
+      <span class="ben-cat-label">Sobre ouvir a voz de Deus</span>
+      <div class="ben-grid">
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como reconhecer e rejeitar a ansiedade — e a diferença entre inquietação e paz</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como saber se você está agindo por fé ou por ansiedade disfarçada de espiritualidade</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como alinhar propósito antes do sentimento — e por que essa ordem muda tudo</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como reconhecer as confirmações do Espírito Santo</span></div>
+      </div>
+    </div>
+
+    <div class="ben-cat">
+      <span class="ben-cat-label">Sobre iniciar o relacionamento certo</span>
+      <div class="ben-grid">
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como conversar sobre sonhos, metas e visão de futuro sem pressão e com sabedoria</span></div>
+        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como entrar em um relacionamento com maturidade emocional, alinhamento espiritual e paz no coração</span></div>
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero acessar os 21 passos</a>
+      <span class="btn-note light">Clareza, discernimento e paz no coração</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section id="prova-social">
+  <div class="container">
+    <span class="depo-eyebrow">Depoimentos</span>
+    <h2>Relatos de quem ganhou <em>clareza</em> no processo</h2>
+    <div class="depo-masonry">
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento0.png" alt="Depoimento real de leitora sobre o e-book 21 Passos Bíblicos" loading="lazy">
+      </div>
+
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento1.png" alt="Depoimento real sobre a leitura e aplicação do conteúdo" loading="lazy">
+      </div>
+
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento2.png" alt="Depoimento real destacando clareza e propósito no relacionamento" loading="lazy">
+      </div>
+
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento3.png" alt="Depoimento real com feedback sobre o material" loading="lazy">
+      </div>
+
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento4.png" alt="Comentário real elogiando o livro" loading="lazy">
+      </div>
+
+      <div class="depo-item">
+        <img src="./depoimentos/depoimento5.png" alt="Depoimento real sobre a transformação gerada pelo conteúdo" loading="lazy">
+      </div>
+
+    </div>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero ter essa clareza também</a>
+      <span class="btn-note">Acesso imediato · Garantia de 7 dias</span>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <h2><span class="offer-line">Comece <em>hoje,</em> com</span><span class="offer-line">clareza e sem risco.</span></h2>
+    <p class="offer-meta"><span class="offer-meta-line">Conteúdo 100% digital · Acesso imediato por</span><span class="offer-meta-line">e-mail · Leitura no celular, tablet ou computador</span></p>
+    <div class="price-box">
+      <div class="price-stack">
+        <p class="price-original"><del>De R$97</del></p>
+        <span class="price-prefix">por</span>
+        <div class="price-value"><span class="price-currency">R$</span>47</div>
+      </div>
+      <p class="price-sub">Acesso imediato · Formato digital · Garantia de 7 dias</p>
+      <a href="#" class="btn-cta">Quero garantir meu acesso agora</a>
+    </div>
+    <div class="pay-badges">
+      <span class="badge">🔒 Pagamento seguro</span>
+      <span class="badge">Pix</span>
+      <span class="badge">Cartão de crédito</span>
+      <span class="badge">Boleto</span>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section id="garantia">
+  <div class="container">
+    <div class="garantia-box">
+      <div class="g-seal-wrap">
+        <img class="g-seal" src="./img/selo.png" alt="Selo de garantia de 7 dias" loading="lazy">
+      </div>
+      <div class="g-content">
+        <h2><span class="garantia-line">Você não corre <em>nenhum risco</em></span></h2>
+        <p><span class="garantia-copy-line">Se em até <strong>7 dias</strong> após o acesso você sentir que o conteúdo não te</span><span class="garantia-copy-line">trouxe clareza, direção e paz — <strong>devolvemos 100% do seu investimento.</strong> Sem perguntas. Sem burocracia. Sem complicação.</span></p>
+        <p><strong>Você só perde se não tentar.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORIDADE -->
+<section id="autoridade">
+  <div class="container">
+    <div class="author-block">
+      <div class="author-photo-wrap">
+        <img class="author-photo" src="./img/profile.jpg" alt="Foto de Igor Reis" loading="lazy">
+      </div>
+      <div class="author-bio">
+        <h2>Quem é <em>Igor Reis?</em></h2>
+        <p>Igor não fala sobre relacionamentos de uma posição distante ou teórica. Ele fala como alguém que se afastou de Jesus, se perdeu emocionalmente, repetiu padrões, saiu ferido — e encontrou no processo de voltar para Deus a clareza que o levou a mergulhar nas Escrituras com uma pergunta real: por que cristãos que amam a Deus continuam errando tanto nessa área?</p>
+        <p>A resposta que ele encontrou virou um método. E esse método já ajudou centenas de pessoas através da Comunidade Herdeiros do Reino.</p>
+        <div class="author-creds">
+          <div class="cred"><span class="cred-dot">·</span><span>Criador da <strong>Crono Bíblia</strong> — ferramenta de leitura cronológica usada por milhares</span></div>
+          <div class="cred"><span class="cred-dot">·</span><span>Criador do método <strong>Colocando a Casa em Ordem</strong></span></div>
+          <div class="cred"><span class="cred-dot">·</span><span>Fundador da <strong>Comunidade Herdeiros do Reino</strong></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="faq-eyebrow">FAQ</span>
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Esse conteúdo é só para mulheres?
+          <span class="faq-ch" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Não. Os 21 passos foram pensados para cristãos — homens e mulheres.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Serve para quem já está em um relacionamento?
+          <span class="faq-ch" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Sim. O conteúdo também ajuda a trazer clareza sobre o relacionamento atual.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          O conteúdo é físico ou digital?
+          <span class="faq-ch" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">É 100% digital. O acesso chega por e-mail e você pode ler no celular, tablet ou computador.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Preciso ser evangélico praticante para aplicar?
+          <span class="faq-ch" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">O conteúdo é voltado para quem tem fé cristã e deseja aplicar princípios bíblicos com honestidade.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Em quanto tempo vou ver resultado?
+          <span class="faq-ch" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a">Muitas pessoas relatam clareza já nos primeiros capítulos.</div>
+      </div>
+
+    </div>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn-cta">Quero começar hoje</a>
+      <span class="btn-note light">R$47 · Acesso imediato · Garantia de 7 dias</span>
+    </div>
+  </div>
+</section>
+
+<div class="lead-modal" id="lead-modal" aria-hidden="true">
+  <div class="lead-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+    <button class="lead-modal__close" type="button" aria-label="Fechar modal" data-close-modal>×</button>
+    <h2 class="lead-modal__title" id="lead-modal-title">Preencha os dados abaixo para garantir seu E-book</h2>
+    <form class="lead-form" id="lead-form">
+      <input class="lead-field" id="lead-name" name="name" type="text" placeholder="Digite seu Nome" autocomplete="name" required>
+      <input class="lead-field" id="lead-email" name="email" type="email" placeholder="Digite seu E-mail" autocomplete="email" required>
+      <label class="lead-phone" for="lead-phone-input">
+        <span class="lead-phone__prefix">🇧🇷 +55</span>
+        <input class="lead-phone__field" id="lead-phone-input" name="phone" type="tel" inputmode="tel" placeholder="11 96123-4567" autocomplete="tel-national" required>
+      </label>
+      <button class="lead-form__submit" id="lead-submit" type="submit">Continuar</button>
+    </form>
+    <p class="lead-modal__hint" id="lead-modal-hint"></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-links">
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos de Uso</a>
+    <a href="#">Política de Reembolso</a>
+  </div>
+  <p>© 2026 Café com Igor · Apollo Lançamentos · CNPJ: 43.067.523/0001-68</p>
+  <p>Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  const LEAD_CONFIG = {
+    supabaseUrl: '',
+    supabaseAnonKey: '',
+    table: 'leads',
+    checkoutUrl: ''
+  };
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const leadModal = document.getElementById('lead-modal');
+  const leadForm = document.getElementById('lead-form');
+  const leadHint = document.getElementById('lead-modal-hint');
+  const leadSubmit = document.getElementById('lead-submit');
+  const leadPhone = document.getElementById('lead-phone-input');
+  const ctaButtons = document.querySelectorAll('.btn-cta');
+
+  function openLeadModal() {
+    leadModal.classList.add('is-open');
+    leadModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    leadHint.textContent = '';
+    window.setTimeout(() => document.getElementById('lead-name')?.focus(), 30);
+  }
+
+  function closeLeadModal() {
+    leadModal.classList.remove('is-open');
+    leadModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', event => {
+      event.preventDefault();
+      openLeadModal();
+    });
+  });
+
+  leadModal.addEventListener('click', event => {
+    if (event.target === leadModal || event.target.hasAttribute('data-close-modal')) {
+      closeLeadModal();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && leadModal.classList.contains('is-open')) {
+      closeLeadModal();
+    }
+  });
+
+  leadPhone.addEventListener('input', () => {
+    const digits = leadPhone.value.replace(/\D/g, '').slice(0, 11);
+    if (digits.length <= 2) {
+      leadPhone.value = digits;
+      return;
+    }
+    if (digits.length <= 7) {
+      leadPhone.value = `${digits.slice(0, 2)} ${digits.slice(2)}`;
+      return;
+    }
+    if (digits.length <= 10) {
+      leadPhone.value = `${digits.slice(0, 2)} ${digits.slice(2, 6)}-${digits.slice(6)}`;
+      return;
+    }
+    leadPhone.value = `${digits.slice(0, 2)} ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  });
+
+  async function saveLeadToSupabase(payload) {
+    if (!LEAD_CONFIG.supabaseUrl || !LEAD_CONFIG.supabaseAnonKey || !LEAD_CONFIG.table) {
+      return { skipped: true };
+    }
+
+    const response = await fetch(`${LEAD_CONFIG.supabaseUrl}/rest/v1/${LEAD_CONFIG.table}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: LEAD_CONFIG.supabaseAnonKey,
+        Authorization: `Bearer ${LEAD_CONFIG.supabaseAnonKey}`,
+        Prefer: 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error('Não foi possível salvar o lead no Supabase.');
+    }
+
+    return { skipped: false };
+  }
+
+  leadForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const formData = new FormData(leadForm);
+    const payload = {
+      name: String(formData.get('name') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      phone: `+55${String(formData.get('phone') || '').replace(/\D/g, '')}`,
+      source: 'landing-page',
+      created_at_client: new Date().toISOString()
+    };
+
+    leadSubmit.disabled = true;
+    leadHint.textContent = 'Processando...';
+
+    try {
+      const result = await saveLeadToSupabase(payload);
+
+      if (!LEAD_CONFIG.checkoutUrl) {
+        localStorage.setItem('pendingLeadCheckout', JSON.stringify(payload));
+        leadHint.textContent = result.skipped
+          ? 'Modal pronto. Falta configurar Supabase e URL do checkout no script.'
+          : 'Lead salvo. Falta configurar a URL do checkout no script.';
+        return;
+      }
+
+      window.location.href = LEAD_CONFIG.checkoutUrl;
+    } catch (error) {
+      leadHint.textContent = 'Não foi possível enviar agora. Confira a configuração e tente novamente.';
+    } finally {
+      leadSubmit.disabled = false;
+    }
+  });
+
+  const revealTargets = document.querySelectorAll('section, footer');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    revealTargets.forEach((el, index) => {
+      if (index > 0) el.classList.add('scroll-reveal');
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    revealTargets.forEach((el, index) => {
+      if (index > 0) revealObserver.observe(el);
+    });
+  }
+</script>
+
+</body>
+</html>

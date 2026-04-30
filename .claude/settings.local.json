@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe -Command ':*)",
+      "Bash(pdftotext \"d:/@Samuel/@Erik/cafe com igor/v3-final.pdf\" -)",
+      "Bash(pdftotext -layout \"d:/@Samuel/@Erik/cafe com igor/v3-final.pdf\" -)"
+    ]
+  }
+}
