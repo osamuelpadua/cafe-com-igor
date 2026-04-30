@@ -1783,7 +1783,7 @@
     supabaseUrl: 'https://kkzpxmjdihyffyqgyqok.supabase.co',
     supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtrenB4bWpkaWh5ZmZ5cWd5cW9rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NjI4OTgsImV4cCI6MjA5MzEzODg5OH0.jcdZZH07hH7wAORGmLZneP-WnUy3WjN2J-xgRHyjqXU',
     table: 'leads',
-    checkoutUrl: ''
+    checkoutUrl: 'https://pay.hotmart.com/V103185627F?off=sgpah0ce&checkoutMode=10&utm_source=bio&bid=1777580131827'
   };
 
   function toggleFaq(btn) {
@@ -1894,14 +1894,14 @@
       if (!LEAD_CONFIG.checkoutUrl) {
         localStorage.setItem('pendingLeadCheckout', JSON.stringify(payload));
         leadHint.textContent = result.skipped
-          ? 'Modal pronto. Falta configurar Supabase e URL do checkout no script.'
-          : 'Lead salvo. Falta configurar a URL do checkout no script.';
+          ? 'Não foi possível enviar no momento.'
+          : 'Enviado com sucesso.';
         return;
       }
 
       window.location.href = LEAD_CONFIG.checkoutUrl;
     } catch (error) {
-      leadHint.textContent = 'Não foi possível enviar agora. Confira a configuração e tente novamente.';
+      leadHint.textContent = 'Não foi possível enviar no momento.';
     } finally {
       leadSubmit.disabled = false;
     }
