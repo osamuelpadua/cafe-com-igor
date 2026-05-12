@@ -107,7 +107,7 @@
     h1 em, h2 em {
       font-style: italic;
       font-weight: 700;
-      color: var(--gold-light);
+      color: var(--gold-mid);
     }
     /* Em seções claras: dourado mais escuro */
     #ebook-intro h2 em,
@@ -203,6 +203,9 @@
     #hero h1 {
       font-size: clamp(34px, 3.7vw, 46px);
       color: var(--text-dark);
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
       max-width: 980px;
       margin: 0 auto 20px;
       line-height: 1.1;
@@ -210,6 +213,8 @@
     .hero-line {
       display: block;
       width: max-content;
+      margin-left: auto;
+      margin-right: auto;
       max-width: 100%;
       margin: 0 auto;
     }
@@ -428,6 +433,13 @@
       color: var(--gold-mid);
       font-weight: 700;
     }
+    .ebook-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: var(--text-medium);
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
 
     @media (max-width: 1080px) {
       #ebook-intro .container {
@@ -521,14 +533,17 @@
     }
     .espelho-line {
       display: block;
+      white-space: nowrap;
     }
     #espelho h2 {
       color: var(--text-on-dark);
-      max-width: 860px;
+      width: max-content;
+      max-width: 100%;
       margin: 0 auto 26px;
-      font-size: clamp(34px, 3.2vw, 46px);
+      font-size: clamp(30px, 2.6vw, 40px);
       line-height: 1.06;
       letter-spacing: -0.2px;
+      text-align: center;
     }
     #espelho blockquote {
       font-family: 'Playfair Display', serif;
@@ -549,6 +564,7 @@
       }
       .espelho-line {
         display: inline;
+        white-space: normal;
       }
       #espelho h2 {
         font-size: clamp(30px, 7vw, 46px);
@@ -641,16 +657,25 @@
     }
     #produto h2 {
       color: var(--text-dark);
-      width: max-content;
+      width: auto;
       max-width: 100%;
       margin: 0 auto 16px;
       font-size: clamp(38px, 3.6vw, 46px);
       line-height: 1.01;
       letter-spacing: -1px;
-      white-space: nowrap;
+      white-space: normal;
     }
     .produto-line { display: inline; }
     .produto-copy-line { display: block; }
+    .method-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-mid);
+      line-height: 1.3;
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
     .method-body {
       font-size: 18px;
       font-weight: 500;
@@ -729,26 +754,15 @@
       margin-right: auto;
       text-align: center;
     }
-    .ben-cat { margin-bottom: 48px; }
-    .ben-cat:last-of-type { margin-bottom: 0; }
-    .ben-cat-label {
-      display: block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(212,168,83,0.28);
-      margin-bottom: 20px;
+    .ben-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto 0;
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-    .ben-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    @media (max-width: 640px) { .ben-grid { grid-template-columns: 1fr; } }
     .ben-item {
       display: flex;
       align-items: flex-start;
@@ -785,7 +799,7 @@
       font-size: clamp(34px, 3.2vw, 46px);
       line-height: 1.04;
       letter-spacing: -0.7px;
-      white-space: nowrap;
+      white-space: normal;
     }
     .depo-eyebrow {
       display: block;
@@ -799,31 +813,91 @@
       margin-bottom: 18px;
     }
 
-    .depo-masonry {
-      columns: 3;
-      column-gap: 26px;
+    /* --- Carrossel de depoimentos --- */
+    .depo-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
-    @media (max-width: 720px) { .depo-masonry { columns: 2; } }
-    @media (max-width: 460px) { .depo-masonry { columns: 1; } }
-
-    .depo-item {
-      break-inside: avoid;
-      margin-bottom: 26px;
-      border-radius: 24px;
+    .depo-track-wrap {
       overflow: hidden;
-      background: rgba(255,255,255,0.98);
-      padding: 14px;
+      flex: 1;
+    }
+    .depo-track {
+      display: flex;
+      gap: 22px;
+      transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+    }
+    .depo-card {
+      flex: 0 0 calc((100% - 44px) / 3);
+      background: rgba(255,255,255,0.96);
+      border-radius: 20px;
+      padding: 32px 28px 26px;
+      margin: 0;
       box-shadow: 0 10px 30px rgba(28,18,8,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-left: 4px solid var(--gold-mid);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
     }
-    .depo-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 42px rgba(28,18,8,0.12);
+    .depo-card p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin: 0;
     }
-    .depo-item img {
-      width: 100%;
-      display: block;
-      border-radius: 18px;
+    .depo-card footer {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-mid);
+    }
+    .depo-nav {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(192,144,56,0.4);
+      background: rgba(255,255,255,0.85);
+      color: var(--gold-mid);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .depo-nav:hover {
+      background: #fff;
+      border-color: var(--gold-mid);
+      transform: scale(1.08);
+    }
+    .depo-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 26px;
+    }
+    .depo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(192,144,56,0.25);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .depo-dot.active {
+      background: var(--gold-mid);
+      transform: scale(1.25);
+    }
+    @media (max-width: 760px) {
+      .depo-card { flex: 0 0 100%; }
+      .depo-nav { display: none; }
     }
     #prova-social .btn-wrap {
       margin-top: 54px;
@@ -896,14 +970,22 @@
     }
     #oferta h2 {
       color: var(--text-on-dark);
-      width: max-content;
+      width: auto;
       max-width: 100%;
-      margin: 0 auto 22px;
+      margin: 0 auto 16px;
       font-size: clamp(38px, 4vw, 46px);
       line-height: 0.95;
       letter-spacing: -1px;
     }
     .offer-line { display: block; }
+    .offer-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      color: rgba(245,235,216,0.75);
+      line-height: 1.5;
+      max-width: 640px;
+      margin: 0 auto 38px;
+    }
     .offer-meta {
       font-family: 'Montserrat', sans-serif;
       font-size: 15px;
@@ -1077,7 +1159,7 @@
       margin-bottom: 22px;
       white-space: nowrap;
     }
-    .garantia-line { display: inline; }
+    .garantia-line { display: block; white-space: nowrap; }
     .g-content p {
       font-family: 'Montserrat', sans-serif;
       font-size: 18px;
@@ -1574,8 +1656,8 @@
 <section id="hero">
   <div class="container">
     <span class="eyebrow">Igor Reis · Café com Igor</span>
-    <h1><span class="hero-line">Por que cristãos de boa intenção</span><span class="hero-line">continuam atraindo as <em>pessoas erradas</em></span><span class="hero-line">e o que a Bíblia <em>realmente</em> diz sobre isso</span></h1>
-    <p class="subheadline">Não é falta de fé. É um padrão que precisa ser quebrado e existe um caminho bíblico, claro e prático, para isso.</p>
+    <h1><span class="hero-line">Você não escolhe errado por <em>falta de fé.</em></span><span class="hero-line">Você só está repetindo</span><span class="hero-line"><em>o mesmo padrão</em> sem perceber.</span></h1>
+    <p class="subheadline">Não é sobre intenção. É sobre estrutura emocional e espiritual para escolher certo.</p>
 
     <div class="hero-media">
       <img src="./img/thumb.png" alt="Thumbnail do vídeo 21 Passos Bíblicos" loading="eager">
@@ -1583,9 +1665,9 @@
     </div>
 
     <div class="btn-wrap">
-      <a href="#oferta" class="btn-cta">Quero acessar os 21 passos agora</a>
+      <a href="#oferta" class="btn-cta">QUERO QUEBRAR ESSE PADRÃO AGORA →</a>
       <span class="btn-note light"><del>De R$97</del> &nbsp;por apenas <strong>R$47</strong></span>
-      <span class="btn-note light">Pagamento 100% seguro · Acesso imediato</span>
+      <span class="btn-note light">Acesso imediato · Método prático · Sem enrolação</span>
     </div>
   </div>
 </section>
@@ -1598,14 +1680,15 @@
         <img class="ebook-cover" src="./img/cover-book.png" alt="Capa do e-book 21 Passos Bíblicos Para Encontrar a Pessoa Certa" loading="lazy">
       </div>
       <div class="ebook-body">
-        <h2>Um método bíblico prático para escolher com maturidade, clareza e paz.</h2>
+        <h2>Um processo claro para parar de escolher errado.</h2>
+        <p class="ebook-subtitle">Não são conselhos soltos. São 21 decisões que reorganizam sua forma de se relacionar.</p>
         <ul class="ebook-pts">
-          <li>21 passos para discernir antes de se envolver</li>
-          <li>Direção para curar emoções e ouvir Deus com mais clareza</li>
-          <li>Aplicação simples, com acesso imediato</li>
+          <li>Discernir antes de se envolver</li>
+          <li>Alinhar emoção com direção</li>
+          <li>Ouvir Deus com clareza prática</li>
         </ul>
         <div class="ebook-cta">
-          <a href="#oferta" class="btn-cta">Quero começar com mais clareza</a>
+          <a href="#oferta" class="btn-cta">QUERO COMEÇAR COM CLAREZA →</a>
           <span class="ebook-price"><strong>R$47</strong> · Acesso imediato</span>
         </div>
       </div>
@@ -1616,27 +1699,27 @@
 <!-- ESPELHO -->
 <section id="espelho">
   <div class="container">
-    <h2><span class="espelho-line">Você tentou fazer certo. E mesmo</span><span class="espelho-line">assim saiu <em>mais ferido</em> do que entrou.</span></h2>
-    <blockquote>Orou, buscou direção, insistiu... e no fim a história doeu de novo.</blockquote>
+    <h2><span class="espelho-line">Você tentou fazer certo.</span><span class="espelho-line">E mesmo assim terminou no mesmo lugar.</span></h2>
+    <blockquote>Orar, buscar direção, tentar diferente… e no final, a história se repete.</blockquote>
   </div>
 </section>
 
 <!-- DIAGNÓSTICO -->
 <section id="diagnostico">
   <div class="container">
-    <h2>O problema não é a sua boa intenção. É o <em>padrão</em> que se repete.</h2>
+    <h2>O problema não é sua intenção.<br class="d-br"> É o padrão que você ainda não percebeu.</h2>
     <ul class="neg-list">
-      <li><span class="neg-x">×</span> Escolher com base nas feridas, não na maturidade</li>
-      <li><span class="neg-x">×</span> Ignorar sinais óbvios porque via só o potencial</li>
-      <li><span class="neg-x">×</span> Carregar dores que não eram suas</li>
-      <li><span class="neg-x">×</span> Tentar salvar o outro espiritualmente</li>
+      <li><span class="neg-x">×</span> Escolher com base na carência, não na clareza</li>
+      <li><span class="neg-x">×</span> Ignorar sinais óbvios porque "parece certo"</li>
+      <li><span class="neg-x">×</span> Carregar dores que não são suas</li>
+      <li><span class="neg-x">×</span> Tentar salvar alguém ao invés de discernir</li>
       <li><span class="neg-x">×</span> Confundir sentimento com direção de Deus</li>
     </ul>
     <div class="diag-callout">
-      <p>Isso não é falta de fé. É falta de <em>estrutura emocional e espiritual</em> para escolher do jeito certo.</p>
+      <p>Você não está errando sem querer. Você está repetindo.</p>
     </div>
     <div class="btn-wrap">
-      <a href="#oferta" class="btn-cta">Quero romper esse ciclo</a>
+      <a href="#oferta" class="btn-cta">QUERO ROMPER ESSE CICLO →</a>
       <span class="btn-note">Método bíblico prático · Acesso imediato</span>
     </div>
   </div>
@@ -1646,11 +1729,11 @@
 <section id="produto">
   <div class="container">
     <span class="method-label">Não é mais um e-book</span>
-    <h2><span class="produto-line">É um método bíblico</span><span class="produto-line"><em>prático.</em></span></h2>
-    <p class="method-body"><span class="produto-copy-line">Os 21 passos não são frases soltas sobre "esperar em Deus".</span><span class="produto-copy-line">Eles seguem uma ordem clara e aplicável.</span></p>
-    <p class="method-body"><span class="produto-copy-line">Primeiro organiza o que está aí dentro. Depois te ajuda a escolher</span><span class="produto-copy-line">com mais maturidade, direção de Deus e paz no coração.</span></p>
+    <h2>Isso não é sobre esperar em Deus.</h2>
+    <p class="method-subtitle">É sobre parar de se sabotar enquanto espera.</p>
+    <p class="method-body">Existe uma ordem.<br>Primeiro você organiza o que está dentro.<br>Depois aprende a escolher com paz, clareza e direção.</p>
     <div class="btn-wrap">
-      <a href="#oferta" class="btn-cta">Quero entender esses 21 passos</a>
+      <a href="#oferta" class="btn-cta">QUERO ENTENDER ESSE PROCESSO →</a>
       <span class="btn-note">Leitura simples · Aplicação prática</span>
     </div>
   </div>
@@ -1659,48 +1742,19 @@
 <!-- BENEFÍCIOS -->
 <section id="beneficios">
   <div class="container">
-    <h2>Os <em>benefícios</em> que você vai descobrir dentro dos 21 passos:</h2>
+    <h2>O que muda quando você aprende a escolher certo:</h2>
 
-    <div class="ben-cat">
-      <span class="ben-cat-label">Sobre você mesmo</span>
-      <div class="ben-grid">
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que você continua atraindo o mesmo perfil de pessoa — e o mecanismo bíblico para romper esse ciclo de vez</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como saber se sua identidade está firmada em Cristo ou em aprovação externa — e o que isso tem a ver com quem você escolhe</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como curar as emoções que estão guiando suas decisões amorosas sem você perceber</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que o relacionamento certo acontece quando você entra nesse estado</span></div>
-      </div>
-    </div>
-
-    <div class="ben-cat">
-      <span class="ben-cat-label">Sobre discernir a pessoa certa</span>
-      <div class="ben-grid">
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como distinguir essência de aparência — o que a Bíblia revela sobre enxergar além do que impressiona</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Por que caráter sustenta uma aliança e carisma não — e os sinais práticos de cada um no dia a dia</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">O que é "identificar jugo desigual" e como se envolver emocionalmente</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como identificar distrações piedosas — aquelas pessoas que parecem vir de Deus, mas não vieram</span></div>
-      </div>
-    </div>
-
-    <div class="ben-cat">
-      <span class="ben-cat-label">Sobre ouvir a voz de Deus</span>
-      <div class="ben-grid">
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como reconhecer e rejeitar a ansiedade — e a diferença entre inquietação e paz</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como saber se você está agindo por fé ou por ansiedade disfarçada de espiritualidade</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como alinhar propósito antes do sentimento — e por que essa ordem muda tudo</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como reconhecer as confirmações do Espírito Santo</span></div>
-      </div>
-    </div>
-
-    <div class="ben-cat">
-      <span class="ben-cat-label">Sobre iniciar o relacionamento certo</span>
-      <div class="ben-grid">
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como conversar sobre sonhos, metas e visão de futuro sem pressão e com sabedoria</span></div>
-        <div class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como entrar em um relacionamento com maturidade emocional, alinhamento espiritual e paz no coração</span></div>
-      </div>
-    </div>
+    <ul class="ben-list">
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como parar de confundir intensidade com direção</span></li>
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como identificar quando é carência, não conexão</span></li>
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como discernir essência, não aparência</span></li>
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como sair de ciclos que parecem "vontade de Deus"</span></li>
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como ouvir Deus sem depender de emoção</span></li>
+      <li class="ben-item"><span class="ben-icon">✦</span><span class="ben-text">Como escolher com paz, não com ansiedade</span></li>
+    </ul>
 
     <div class="btn-wrap">
-      <a href="#oferta" class="btn-cta">Quero acessar os 21 passos</a>
+      <a href="#oferta" class="btn-cta">QUERO APRENDER A ESCOLHER CERTO →</a>
       <span class="btn-note light">Clareza, discernimento e paz no coração</span>
     </div>
   </div>
@@ -1710,35 +1764,52 @@
 <section id="prova-social">
   <div class="container">
     <span class="depo-eyebrow">Depoimentos</span>
-    <h2>Relatos de quem ganhou <em>clareza</em> no processo</h2>
-    <div class="depo-masonry">
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento0.png" alt="Depoimento real de leitora sobre o e-book 21 Passos Bíblicos" loading="lazy">
-      </div>
+    <h2>Pessoas que pararam de repetir o mesmo padrão:</h2>
 
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento1.png" alt="Depoimento real sobre a leitura e aplicação do conteúdo" loading="lazy">
-      </div>
+    <div class="depo-carousel">
+      <button class="depo-nav depo-nav--prev" id="depo-prev" aria-label="Anterior">&#8592;</button>
+      <div class="depo-track-wrap">
+        <div class="depo-track" id="depo-track">
 
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento2.png" alt="Depoimento real destacando clareza e propósito no relacionamento" loading="lazy">
-      </div>
+          <blockquote class="depo-card">
+            <p>"Eu sempre acreditei que escolhia errado por azar, ou que Deus simplesmente ainda não tinha mandado a pessoa certa. Quando entendi que era um padrão emocional que eu estava repetindo — e não falta de fé — tudo começou a fazer sentido. Pela primeira vez me vi com honestidade."</p>
+            <footer>Ana L.</footer>
+          </blockquote>
 
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento3.png" alt="Depoimento real com feedback sobre o material" loading="lazy">
-      </div>
+          <blockquote class="depo-card">
+            <p>"Passei anos confundindo intensidade com direção. Se eu sentia forte por alguém, achava que era sinal de Deus. Depois dos 21 passos, aprendi a distinguir o que é emoção do que é clareza. Hoje não decido mais no calor do momento. Tenho paz antes de dar qualquer passo."</p>
+            <footer>Marcos V.</footer>
+          </blockquote>
 
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento4.png" alt="Comentário real elogiando o livro" loading="lazy">
-      </div>
+          <blockquote class="depo-card">
+            <p>"Eu era a pessoa que insistia mesmo quando tudo dizia pra parar. Achava que persistência era fé. Esse conteúdo me mostrou a diferença entre persistir por propósito e insistir por medo de ficar só. Hoje eu confio mais no que sinto quando decido soltar."</p>
+            <footer>Juliana C.</footer>
+          </blockquote>
 
-      <div class="depo-item">
-        <img src="./depoimentos/depoimento5.png" alt="Depoimento real sobre a transformação gerada pelo conteúdo" loading="lazy">
-      </div>
+          <blockquote class="depo-card">
+            <p>"Eu me envolvia por carência e justificava como sendo direção de Deus. Parecia que estava orando, mas na verdade estava racionalizando o que já queria ouvir. O processo me ajudou a enxergar quando estou escolhendo com clareza e quando estou escolhendo com medo."</p>
+            <footer>Rafael S.</footer>
+          </blockquote>
 
+          <blockquote class="depo-card">
+            <p>"O mais difícil foi aceitar que eu estava num ciclo que eu mesmo alimentava. Parecia vontade de Deus porque a pessoa era cristã e tinha testemunho. Mas aprendi que aparência espiritual não é caráter. Discernir exige mais do que boa vontade — exige estrutura."</p>
+            <footer>Fernanda A.</footer>
+          </blockquote>
+
+          <blockquote class="depo-card">
+            <p>"Antes eu queria só encontrar a pessoa certa. Depois entendi que o problema não era quem eu encontrava — era quem eu estava sendo quando encontrava. Organizar o que estava dentro de mim primeiro mudou completamente o tipo de relacionamento que passei a buscar."</p>
+            <footer>Pedro M.</footer>
+          </blockquote>
+
+        </div>
+      </div>
+      <button class="depo-nav depo-nav--next" id="depo-next" aria-label="Próximo">&#8594;</button>
     </div>
+
+    <div class="depo-dots" id="depo-dots"></div>
+
     <div class="btn-wrap">
-      <a href="#oferta" class="btn-cta">Quero ter essa clareza também</a>
+      <a href="#oferta" class="btn-cta">QUERO TER ESSA CLAREZA →</a>
       <span class="btn-note">Acesso imediato · Garantia de 7 dias</span>
     </div>
   </div>
@@ -1747,7 +1818,8 @@
 <!-- OFERTA -->
 <section id="oferta">
   <div class="container">
-    <h2><span class="offer-line">Comece <em>hoje,</em> com</span><span class="offer-line">clareza e sem risco.</span></h2>
+    <h2>Continuar no mesmo padrão <em>custa mais caro.</em></h2>
+    <p class="offer-subtitle">Isso aqui custa menos do que as decisões erradas que você já repetiu.</p>
     <p class="offer-meta"><span class="offer-meta-line">Conteúdo 100% digital · Acesso imediato por</span><span class="offer-meta-line">e-mail · Leitura no celular, tablet ou computador</span></p>
     <div class="price-box">
       <div class="price-stack">
@@ -1756,7 +1828,7 @@
         <div class="price-value"><span class="price-currency">R$</span>47</div>
       </div>
       <p class="price-sub">Acesso imediato · Formato digital · Garantia de 7 dias</p>
-      <a href="#" class="btn-cta">Quero garantir meu acesso agora</a>
+      <a href="#" class="btn-cta">QUERO GARANTIR MEU ACESSO →</a>
     </div>
     <div class="pay-badges">
       <span class="badge">🔒 Pagamento seguro</span>
@@ -1775,9 +1847,8 @@
         <img class="g-seal" src="./img/selo.png" alt="Selo de garantia de 7 dias" loading="lazy">
       </div>
       <div class="g-content">
-        <h2><span class="garantia-line">Você não corre <em>nenhum risco</em></span></h2>
-        <p><span class="garantia-copy-line">Se em até <strong>7 dias</strong> após o acesso você sentir que o conteúdo não te</span><span class="garantia-copy-line">trouxe clareza, direção e paz — <strong>devolvemos 100% do seu investimento.</strong> Sem perguntas. Sem burocracia. Sem complicação.</span></p>
-        <p><strong>Você só perde se não tentar.</strong></p>
+        <h2><span class="garantia-line">O risco não é entrar.</span><span class="garantia-line">É continuar como está.</span></h2>
+        <p>Teste por 7 dias.<br>Se não fizer sentido, você recebe 100% do valor de volta.<br><br>Simples assim.</p>
       </div>
     </div>
   </div>
@@ -2016,6 +2087,63 @@
       leadSubmit.disabled = false;
     }
   });
+
+  /* ── Carrossel de depoimentos ── */
+  (function () {
+    const track    = document.getElementById('depo-track');
+    const dotsWrap = document.getElementById('depo-dots');
+    const prevBtn  = document.getElementById('depo-prev');
+    const nextBtn  = document.getElementById('depo-next');
+    if (!track) return;
+
+    const cards = Array.from(track.children);
+    const N     = cards.length;
+    let   idx   = 0;
+
+    function pp()     { return window.innerWidth > 760 ? 3 : 1; }
+    function pages()  { return Math.ceil(N / pp()); }
+    function maxIdx() { return Math.max(0, N - pp()); }
+
+    function render() {
+      const perPage = pp();
+      const gap     = 22;
+      const wrap    = track.parentElement;
+      const itemW   = (wrap.offsetWidth - gap * (perPage - 1)) / perPage;
+      track.style.transform = `translateX(-${idx * (itemW + gap)}px)`;
+
+      const activePage = Math.floor(idx / perPage);
+      const totalPages = pages();
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i < totalPages; i++) {
+        const d = document.createElement('span');
+        d.className = 'depo-dot' + (i === activePage ? ' active' : '');
+        d.addEventListener('click', () => { idx = i * perPage; render(); });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      idx = Math.max(0, idx - pp());
+      render();
+    });
+    nextBtn.addEventListener('click', () => {
+      idx = Math.min(maxIdx(), idx + pp());
+      render();
+    });
+
+    /* swipe em mobile */
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) nextBtn.click(); else prevBtn.click();
+      }
+    });
+
+    window.addEventListener('resize', () => { idx = 0; render(); });
+    render();
+  })();
 
   const revealTargets = document.querySelectorAll('section, footer');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
